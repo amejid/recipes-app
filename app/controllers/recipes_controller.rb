@@ -3,19 +3,11 @@ class RecipesController < ApplicationController
     @recipes = current_user.recipes
   end
 
-  def show
+  def show; end
 
-  end
+  def create; end
 
-  def create
+  def new; end
 
-  end
-
-  def new
-
-  end
-
-  def destroy
-
-  end
+  def destroy; end
 end
