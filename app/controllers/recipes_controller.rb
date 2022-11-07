@@ -10,4 +10,12 @@ class RecipesController < ApplicationController
   def new; end
 
   def destroy; end
+
+  def public
+    "Public Recipes"
+  end
+
+  def general
+    "General Shopping List"
+  end
 end

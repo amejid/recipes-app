@@ -1,0 +1,16 @@
+<nav class="bg-blue-500 flex justify-around items-center py-4">
+  <% if current_user %>
+    <%= link_to "Recipes", recipes_path, class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50" %>
+    <%= link_to "Foods", foods_path, class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50" %>
+    <%= link_to "General Shopping List", "/general_shopping_list", class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50" %>
+  <% end %>
+  <%= link_to "Public Recipes", "/public_recipes", class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50" %>
+  <div>
+    <% if current_user %>
+      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50"%>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path, class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "bg-green-300 rounded-md px-2 py-1 hover:bg-green-50" %>
+    <% end %>
+  </div>
+</nav>
