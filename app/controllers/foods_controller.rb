@@ -20,16 +20,17 @@ class FoodsController < ApplicationController
   def destroy
     food = Food.find(params[:id])
 
-    if food.user == current_user
-      if food.destroy
-        flash[:notice] = 'Food was successfully deleted.'
-      else
-        flash[:alert] = 'Food deleting Failed. Please try again.'
-      end
-      redirect_back(fallback_location: root_path)
-    else
-      flash[:alert] = 'You do not have access to delete the Food belongs to other Users.'
+    unless food.user == current_user
+      return flash[:alert] =
+               'You do not have access to delete the Food belongs to other Users.'
     end
+
+    if food.destroy
+      flash[:notice] = 'Food was successfully deleted.'
+    else
+      flash[:alert] = 'Food deleting Failed. Please try again.'
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   def food_params
