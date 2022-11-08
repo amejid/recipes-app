@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'recipes#index'
 
-  resources :recipes, except: [:edit, :update]
+  resources :recipes, except: [:edit, :update] do
+    resources :recipe_foods, only: [:new, :create, :destroy]
+  end
   resources :foods, except: [:edit, :update]
 
   get '/public_recipes', to: 'recipes#public'
