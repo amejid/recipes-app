@@ -1,2 +1,5 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice %>
+  <p class="bg-green-300 py-2 flex justify-center text-gray-800"><%= notice %></p>
+<% elsif alert %>
+  <p class="bg-red-200 py-2 flex justify-center text-gray-700"><%= alert %></p>
+<% end %>
