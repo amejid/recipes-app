@@ -3,7 +3,15 @@ class FoodsController < ApplicationController
     @foods = Food.all
   end
 
-  def show
-    @food = Food.find(params[:id])
+  def new
+
+  end
+
+  def create
+    @food = Food.new(food_params)
+  end
+
+  def destroy
+
   end
 end
