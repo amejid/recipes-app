@@ -21,8 +21,8 @@ class FoodsController < ApplicationController
     food = Food.find(params[:id])
 
     unless food.user == current_user
-      return flash[:alert] =
-               'You do not have access to delete the Food belongs to other Users.'
+      flash[:alert] =
+        'You do not have access to delete the Food belongs to other Users.'
     end
 
     if food.destroy
@@ -32,6 +32,8 @@ class FoodsController < ApplicationController
     end
     redirect_back(fallback_location: root_path)
   end
+
+  private
 
   def food_params
     params.require(:food).permit(:name, :quantity, :measurement_unit, :price)

@@ -2,7 +2,7 @@
   <%= form_with model: @food, class: "mt-16 px-8 py-4 w-96 bg-white rounded-lg shadow-lg h-fit" do |form| %>
     <% if @food.errors.any? %>
       <div>
-        <h3><%= pluralize(@food.errors.count, "error") %>occured: </h3>
+        <h3><%= pluralize(@food.errors.count, "error") %>occurred: </h3>
         <ul>
           <%= @food.errors.full_messages.each do |message| %>
             <li><%= message %></li>
