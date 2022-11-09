@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   resources :foods, except: [:edit, :update]
 
+  get '/general_shopping_list', to: 'foods#general'
   get '/public_recipes', to: 'recipes#public'
-  get '/general_shopping_list', to: 'recipes#general'
 end

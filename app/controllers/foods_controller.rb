@@ -33,6 +33,16 @@ class FoodsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def general
+    @foods = []
+    current_user.recipes.map do |recipe|
+      recipe.recipe_foods.map do |recipe_food|
+        @foods << recipe_food.food unless @foods.include?(recipe_food.food)
+      end
+    end
+    @total = @foods.sum(&:price)
+  end
+
   private
 
   def food_params

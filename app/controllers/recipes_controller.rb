@@ -49,10 +49,6 @@ class RecipesController < ApplicationController
     @public_recipes = Recipe.where(public: true).order('created_at DESC')
   end
 
-  def general
-    @recipes = Recipe.all
-  end
-
   private
 
   def recipe_params
