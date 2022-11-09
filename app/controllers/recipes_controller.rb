@@ -29,14 +29,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  def public
-    'Public Recipes'
-  end
-
-  def general
-    'General Shopping List'
-  end
-
   def destroy
     recipe = Recipe.find(params[:id])
 
@@ -51,6 +43,14 @@ class RecipesController < ApplicationController
       flash[:alert] = 'Recipe deleting Failed. Please try again.'
     end
     redirect_back(fallback_location: root_path)
+  end
+
+  def public
+    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+  end
+
+  def general
+    @recipes = Recipe.all
   end
 
   private

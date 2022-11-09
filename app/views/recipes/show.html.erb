@@ -44,7 +44,11 @@
               <td class="border border-slate-300 py-2"><%= recipe_food.food.name %></td>
               <td class="border border-slate-300 py-2"><%= recipe_food.quantity %></td>
               <td class="border border-slate-300 py-2">$<%= recipe_food.quantity * recipe_food.food.price %></td>
-              <td class="border border-slate-300 py-2"><%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: "bg-red-300 px-2 py-1 rounded-lg hover:bg-red-500 hover:text-white" %></td>
+              <td class="border border-slate-300 py-2">
+                <% if current_user == recipe_food.recipe.user %>
+                  <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: "bg-red-300 px-2 py-1 rounded-lg hover:bg-red-500 hover:text-white" %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
