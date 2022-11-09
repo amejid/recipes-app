@@ -6,7 +6,7 @@ RSpec.describe 'Foods', type: :system, js: true do
       @user = User.create(name: 'Rex', email: 'rex@mail.com', password: '123456')
       sign_in @user
 
-      @food = Food.create(user: @user, name: 'Apple', measurement_unit: "kg", quantity: 1, price: 10)
+      @food = Food.create(user: @user, name: 'Apple', measurement_unit: 'kg', quantity: 1, price: 10)
       visit foods_path
     end
 

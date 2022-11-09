@@ -6,10 +6,10 @@ RSpec.describe 'RecipeFood', type: :system, js: true do
       @user = User.create(name: 'Rex', email: 'rex@mail.com', password: '123456')
       sign_in @user
 
-      @food = Food.create(user: @user, name: 'Apple', measurement_unit: "kg", quantity: 1, price: 10)
+      @food = Food.create(user: @user, name: 'Banana', measurement_unit: 'kg', quantity: 1, price: 10)
       @recipe = Recipe.create(user: @user, name: 'Apple Pie', preparation_time: 2, cooking_time: 1,
                               description: 'Nice food wow', public: true)
-      @recipe_food = RecipeFood.create(recipe: @recipe, food: @food, quantity: 1)
+      @recipe_food = RecipeFood.create(recipe: @recipe, food: @food, quantity: 4)
       visit recipe_path(@recipe)
     end
 
@@ -21,7 +21,7 @@ RSpec.describe 'RecipeFood', type: :system, js: true do
       expect(page).to have_content(@recipe_food.quantity)
     end
 
-    it 'renders total price of the food of ingredent' do
+    it 'renders total price of the food of ingredient' do
       expect(page).to have_content(@recipe_food.quantity * @recipe_food.food.price)
     end
 
@@ -29,12 +29,12 @@ RSpec.describe 'RecipeFood', type: :system, js: true do
       expect(page).to have_content('Remove')
     end
 
-    it 'redirects to add ingredient page' do
-      click_link 'Remove'
-      expect(page).to not have_current_path(recipe_path(@recipe))
-      expect(page).to not have_content(@recipe_food.food.name)
-      expect(page).to not have_content(@recipe_food.quantity)
-      expect(page).to not have_content(@recipe_food.quantity * @recipe_food.food.price)
+    it 'delete the ingredient' do
+      click_button 'Remove'
+      expect(page).to have_current_path(recipe_path(@recipe))
+      expect(page).not_to have_content(@recipe_food.food.name)
+      expect(page).not_to have_content(@recipe_food.quantity)
+      expect(page).not_to have_content(@recipe_food.quantity * @recipe_food.food.price)
     end
   end
 end
