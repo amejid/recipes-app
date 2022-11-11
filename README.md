@@ -10,6 +10,9 @@
   - Moreover, the general shopping list to display the missing foods in the owner's recipes list.
   - For more information, check the website yourself.
   - Happy shopping!
+  
+## Live Demo
+[Shopping On Rails](https://shopping-on-rails.herokuapp.com/)
 
 ## Built With
 
