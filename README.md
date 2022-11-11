@@ -10,6 +10,9 @@
   - Moreover, the general shopping list to display the missing foods in the owner's recipes list.
   - For more information, check the website yourself.
   - Happy shopping!
+  
+## Live Demo
+[Shopping On Rails](https://shopping-on-rails.herokuapp.com/)
 
 ## Built With
 
@@ -38,6 +41,12 @@ you@your-Pc-name:~$ cd <shopping-on-rails>
 ```bash command
 bundle install
 ```
+
+#### 4. Set up the database:
+
+- setup the database environment in
+```bash command
+config/database.yml
 
 #### 4. Create the databases:
 
