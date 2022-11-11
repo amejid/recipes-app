@@ -42,6 +42,12 @@ you@your-Pc-name:~$ cd <shopping-on-rails>
 bundle install
 ```
 
+#### 4. Set up the database:
+
+- setup the database environment in
+```bash command
+config/database.yml
+
 #### 4. Create the databases:
 
 ```bash command
